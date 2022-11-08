@@ -35,7 +35,6 @@ typings/
 .env
 .sass-cache/
 *.css.map
-node_modules/
 Video/
 *.kra
 *.kra~
