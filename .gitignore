@@ -37,3 +37,6 @@ typings/
 *.css.map
 node_modules/
 Video/
+*.kra
+*.kra~
+img/engagement.mp4
