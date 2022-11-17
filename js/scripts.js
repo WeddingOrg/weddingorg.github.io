@@ -184,23 +184,23 @@ $(document).ready(function () {
         },
         data: {
             // Event title
-            title: "Ram and Antara's Wedding",
+            title: "Brendan and Jade's Wedding",
 
             // Event start date
-            start: new Date('Nov 27, 2017 10:00'),
+            start: new Date("Jun 10, 2023 13:00"),
 
             // Event duration (IN MINUTES)
             // duration: 120,
 
             // You can also choose to set an end time
             // If an end time is set, this will take precedence over duration
-            end: new Date('Nov 29, 2017 00:00'),
+            end: new Date("June 10, 2023 22:00"),
 
             // Event Address
-            address: 'ITC Fortune Park Hotel, Kolkata',
+            address: "296 Flower City Park, Rochester, NY 14615",
 
             // Event Description
-            description: "We can't wait to see you on our big day. For any queries or issues, please contact Mr. Amit Roy at +91 9876543210."
+            description: "Please stay up to date with wedding details on thekapps.wedding!"
         }
     });
 
@@ -230,12 +230,64 @@ $(document).ready(function () {
                 })
                 .fail(function (data) {
                     console.log(data);
-                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
+                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is an issue with the server. Please fill out this form: #TODO.')); // TODO: add google form link here
                 });
         }
     });
 
 });
+
+function removeInput() {
+    this.parentElement.remove();
+}
+
+function addInput() {
+    var input = document.querySelector(".input-group");
+
+    // Name
+    var nameDiv =  document.createElement("div");
+    nameDiv.className = "form-input-group";
+    var nameIcon = document.createElement("i");
+    nameIcon.className = "fa fa-user";
+    var nameInput = document.createElement("input");
+    nameInput.className = "rsvp-input";
+    nameInput.type = "text";
+    nameInput.placeholder = "Enter name"
+
+    nameDiv.appendChild(nameIcon);
+    nameDiv.appendChild(nameInput);
+
+    // Email
+
+    var emailDiv =  document.createElement("div");
+    emailDiv.className = "form-input-group";
+    var emailIcon = document.createElement("i");
+    emailIcon.className = "fa fa-user";
+    var emailInput = document.createElement("input");
+    emailInput.className = "rsvp-input";
+    emailInput.type = "text";
+    emailInput.placeholder = "Enter email"
+
+    emailDiv.appendChild(emailIcon);
+    emailDiv.appendChild(emailInput);
+
+    var deleteButton = document.createElement("a");
+    deleteButton.className = "rsvp-delete";
+    deleteButton.innerHTML = "&times;"
+    deleteButton.addEventListener("click", removeInput);
+
+    var flex = document.createElement("div");
+    flex.className = "flex";
+
+    input.appendChild(flex);
+    flex.appendChild(nameDiv);
+    flex.appendChild(emailDiv);
+    flex.appendChild(deleteButton);
+}
+var addButton = document.querySelector(".add");
+
+addButton.addEventListener("click", addInput);
+
 
 /********************** Extras **********************/
 
