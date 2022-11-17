@@ -251,8 +251,10 @@ function addInput() {
     nameIcon.className = "fa fa-user";
     var nameInput = document.createElement("input");
     nameInput.className = "rsvp-input";
-    nameInput.type = "text";
+    nameInput.type = "name";
     nameInput.placeholder = "Enter name"
+    var nameAttr = document.createAttribute("required");
+    nameInput.setAttributeNode(nameAttr);
 
     nameDiv.appendChild(nameIcon);
     nameDiv.appendChild(nameInput);
@@ -262,11 +264,14 @@ function addInput() {
     var emailDiv =  document.createElement("div");
     emailDiv.className = "form-input-group";
     var emailIcon = document.createElement("i");
-    emailIcon.className = "fa fa-user";
+    emailIcon.className = "fa fa-envelope";
     var emailInput = document.createElement("input");
     emailInput.className = "rsvp-input";
-    emailInput.type = "text";
+    emailInput.type = "email";
     emailInput.placeholder = "Enter email"
+    var emailAttr = document.createAttribute("required");
+    emailInput.setAttributeNode(emailAttr);
+
 
     emailDiv.appendChild(emailIcon);
     emailDiv.appendChild(emailInput);
@@ -274,6 +279,9 @@ function addInput() {
     var deleteButton = document.createElement("a");
     deleteButton.className = "rsvp-delete";
     deleteButton.innerHTML = "&times;"
+    var attr = document.createAttribute("href");
+    attr.value = "#rsvp";
+    deleteButton.setAttributeNode(attr);
     deleteButton.addEventListener("click", removeInput);
 
     var flex = document.createElement("div");

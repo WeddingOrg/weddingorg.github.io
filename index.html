@@ -290,52 +290,42 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
+                <br>
                 <h3>What are you waiting for?</h3>
+                <br>
                 <div id="container"/>
                 <form id="rsvp-form" class="rsvp-form"
                       action=""
                       method="POST">
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
+                        <div class="form-input-group">
+                            <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
+                                                            class="" min="0"
+                                                            placeholder="Invite code"
+                                                            required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row">
+                            <br>
+                            <h3>Your party member names:</h3>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="flex">
+                            <div class="form-input-group">
+                                <i class="fa fa-user"></i><input name="name" class=""
+                                                                 placeholder="Your name"
+                                                                 required>
+                            </div>
                             <div class="form-input-group">
                                 <i class="fa fa-envelope"></i><input type="email" name="email" class=""
                                                                      placeholder="Your email"
                                                                      required>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
-                                                                class="" min="0"
-                                                                placeholder="Invite code"
-                                                                required>
-                            </div>
-                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-users"></i><input type="number" name="extras" class="" min="0"
-                                                                  max="12"
-                                                                  placeholder="# spouse and/or children"
-                                                                  required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-user"></i><input name="name" class=""
-                                                                 placeholder="Your name"
-                                                                 required>
-                            </div>
-                        </div>
-                        <div class="wrap">
-                            <h2>Names:</h2>
-                            <a href="#rsvp" class="add">&plus;</a>
-                        </div>
-                    </div>
-                    <div class="input-group">
-
-                    </div>
+                    <a href="#rsvp" class="add">&plus;</a>
                     <br>
                     <div class="row">
                         <div class="col-md-12" id="alert-wrapper"></div>
