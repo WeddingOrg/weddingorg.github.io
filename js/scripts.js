@@ -210,7 +210,8 @@ $(document).ready(function () {
     /********************** RSVP **********************/
     $('#rsvp-form').on('submit', function (e) {
         e.preventDefault();
-        var data = $(this).serialize();
+        // var data = $(this).serialize();
+        // console.log(data);
 
         $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
 
@@ -218,20 +219,54 @@ $(document).ready(function () {
             && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
         } else {
-            $.post('https://script.google.com/macros/s/AKfycbzUqz44wOat0DiGjRV1gUnRf4HRqlRARWggjvHKWvqniP7eVDG-/exec', data)
-                .done(function (data) {
-                    console.log(data);
-                    if (data.result === "error") {
-                        $('#alert-wrapper').html(alert_markup('danger', data.message));
-                    } else {
-                        $('#alert-wrapper').html('');
-                        $('#rsvp-modal').modal('show');
-                    }
-                })
-                .fail(function (data) {
-                    console.log(data);
-                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is an issue with the server. Please fill out this form: #TODO.')); // TODO: add google form link here
-                });
+            console.log("opening new window!");
+            window.open("https://docs.google.com/forms/d/e/1FAIpQLScWvQCd5yJWXYV9s0Nrd2h8H3Sl-f969uZvFAQGcAGF77f0eA/viewform?usp=sf_link", '_blank');
+            $('#alert-wrapper').html('');
+            $('#rsvp-modal').modal('show');
+            
+            // var url = "https://script.google.com/macros/s/AKfycbwK2EgXhEcA597khGgir69jyhxcLBiQ5uGzUSKmoF7hx9oYaXTY5i1T4jbbLqoT1IoO/exec";
+            // url = "http://127.0.0.1:5000/rsvp";
+            // var xhr = new XMLHttpRequest();
+            // data = {"invite_code":"271117", "name":"SITE_WORKS", "email":"post@mail.com"};
+            // xhr.open("POST", url);
+            // xhr.setRequestHeader("Content-Type", "text/plain; charset=utf-8");
+            // console.log("Sending request with json");
+
+            // xhr.onreadystatechange = function () {
+            //     if (this.readyState != 4) return;
+
+            //     if (this.status == 302 || this.status == 204) {
+            //         var data = JSON.parse(this.responseText);
+
+            //         console.log(data);
+
+            //         console.log("Success!");
+            //         $('#alert-wrapper').html('');
+            //         $('#rsvp-modal').modal('show');
+            //     } else {
+            //         console.log("Fail");
+            //         $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is an issue with the server. Please email your guess list to brendan@kapp.network.')); // TODO: add google form link here
+            //     }
+            
+            // };
+
+            // xhr.send(body=data);
+
+            
+            // $.post('https://script.google.com/macros/s/AKfycbwBayOlGKD-8XnzQKyPb3--bUqc5N7A7Wi9iOgszncSV9d-S97Z1RAbEt7_chZA0jgE/exec', data)
+            //     .done(function (data) {
+            //         console.log(data);
+            //         if (data.result === "error") {
+            //             $('#alert-wrapper').html(alert_markup('danger', data.message));
+            //         } else {
+            //             $('#alert-wrapper').html('');
+            //             $('#rsvp-modal').modal('show');
+            //         }
+            //     })
+            //     .fail(function (data) {
+            //         console.log(data);
+            //         $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is an issue with the server. Please email your guess list to brendan@kapp.network.')); // TODO: add google form link here
+            //     });
         }
     });
 
@@ -292,9 +327,9 @@ function addInput() {
     flex.appendChild(emailDiv);
     flex.appendChild(deleteButton);
 }
-var addButton = document.querySelector(".add");
+// var addButton = document.querySelector(".add");
 
-addButton.addEventListener("click", addInput);
+// addButton.addEventListener("click", addInput);
 
 
 /********************** Extras **********************/
